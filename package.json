@@ -1,0 +1,22 @@
+{
+  "name": "user-manager",
+  "version": "1.0.0",
+  "description": "使用angular配合node,bootstrap实现用户管理的功能（增删查改分页）",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "angular",
+    "node",
+    "bootstrap",
+    "增删查改分页"
+  ],
+  "author": "dsh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.1"
+  }
+}

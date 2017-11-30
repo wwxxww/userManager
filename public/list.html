@@ -1,0 +1,73 @@
+<!--list.html列表视图-->
+
+<!--  1.查询条件-->
+<div class="input-group">
+    <input type="text" class="form-control" id="realName" placeholder="请输入姓名" ng-model="realName">
+    <span class="input-group-btn" ng-click="search()"><button class="btn btn-default" type="button">查询</button></span>
+</div>
+
+ 
+<!--  2.列表部分-->
+<table class="table table-striped">
+<thead>
+    <tr>
+    <th>姓名</th>
+    <th>登录名</th> 
+    <th>性别</th>
+    <th>年龄</th>
+    <th>出生日期</th>
+    <th>状态</th>
+    <th>创建时间</th> 
+    <th>操作</th>
+    </tr>
+</thead>
+<tbody>
+    <!-- 在循环的时候，在每次循环的数据时，都会产生相应的index值。 -->
+    <tr ng-repeat="list in userLists">  
+    <td scope="row">{{list.realName}}</td>
+    <td>{{list.loginName}}</td>
+    <td>{{list.sex}}</td>
+    <td>{{list.age}}</td>
+    <td>{{list.birthday}}</td>
+    <td>{{list.status}}</td>
+    <!-- date过滤器 -->
+    <td>{{list.createTime | date: 'yyyy-MM-dd HH:mm' }}</td>   
+    <td>
+        <!-- 编辑功能的edit()方法，还在listController 里面设置的-->
+        <a class="btn btn-sm btn-primary" href="javascript:void(0)" role="button" ng-click="edit($index)">编辑</a>
+        <a class="btn btn-sm btn-primary" href="javascript:void(0)" role="button" ng-click="remove(list._id)">删除</a>
+    </td>
+    </tr>
+</tbody>
+</table>
+
+ 
+<!--  3.分页部分-->
+<nav aria-label="Page navigation">
+<ul class="pagination">
+    <!-- 前一页 -->
+    <!-- search(currentPage - 1) 括号里面传的值，就相当于search()方法查找数据时，必须要传入的第几页的页码数。下面的类似 -->
+    <li class="page-item" ng-class="{disabled: noPrevious()}"  ng-click="search(currentPage - 1)">
+        <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+        </a>
+    </li>
+
+   <!--  中间循环一排的的数字li -->
+   <!-- p 当前循环的p -->
+    <li class="page-item" ng-class="{active: isActive(p)}"  ng-repeat="p in pages" ng-click="search(p)">
+        <a class="page-link" href="javascript:void(0)" >{{p}}</a>
+    </li>
+
+  <!-- 后一页 -->
+  <!-- 这里的disabled 和上面的active 都是bootstrap自定义的样式，只需要给里面传入true或者false就能执行或者不执行相应的样式。 -->
+  <!-- 注意：这里与bootstrap官网上的绑定的方式不同。ng-class={disabled:true/false} -->
+    <li class="page-item" ng-class="{disabled: noNext()}" ng-click="search(currentPage + 1)">
+        <a class="page-link" href="javascript:void(0)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+        </a>
+    </li>
+</ul>
+</nav>

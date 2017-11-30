@@ -1,0 +1,34 @@
+<!--登录视图-->
+<div class="container mt-80">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="loginName" class="col-sm-2 control-label">帐号：</label>
+            <div class="col-sm-10">
+            <!-- 要注意视图页的ng-modle 所设置的值！！，因为在本路由接口所对应的视图和控制器中，控制器需要获取它的值，然后传递给相应的数据库操作的接口处理数据，或者设置它的值 -->
+            <!-- 注意： ng-model 是双向设置的。不仅可以影响控制器的值，还可以通过改变控制器的变量的赋值，然后改变ng-model显示的值 -->
+            <input type="text" class="form-control" id="loginName" placeholder="帐号" ng-model="loginName">
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码：</label>
+            <div class="col-sm-10">
+            <input type="password" class="form-control" id="password" placeholder="密码" ng-model="password">
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            <!-- 登录按钮的点击事件ng-click="login()",调取了loginController.js 里面$scope 里面定义的login()方法 -->
+            <button type="submit" class="btn btn-primary" ng-click="login()">登录</button>
+
+
+            <!-- main.js 中路由跳转到url= '/register' 的路由接口，然后去渲染不同的页面-->
+            <!-- angular.js 1.6.0 版本之前a标签等元素url跳转访问路由路径需要加 ：# +路径 /  1.6.0 之后，路由路径的访问： #！+路径 -->
+            <a ui-sref="register" class="nav-link">注册</a>
+            <!-- ui-sref='register' 相当于自动在要跳转的路由接口的url地址前加了 #！ -->
+            <!-- <a href="#!/register">注册</a> -->
+
+            </div>
+            </div>
+        </div>
+    </form>
+</div>

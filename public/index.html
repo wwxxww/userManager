@@ -1,0 +1,41 @@
+<!--视图总入口-->
+<!DOCTYPE html>
+<!-- 注意：在总入口的视图的设置。ng-app会在main.js被引用。 -->
+<html ng-app="userApp">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="董书华" />
+    <title>用户管理</title>
+    <!-- Bootstrap core CSS -->
+    <link href="scripts/libs/bootstrap-4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<!-- 是一个一级列表容器，将匹配的内容显示在body中，首次进入页面时候，在一级列表的的body里面包含的是login.html 的视图 ，并不显示下面的script标签-->
+<body ui-view>
+ 
+    <!-- 1. 这里的引入的是bootstarp 的4.0的版本的脚本库 -->
+    <script src="scripts/libs/jquery-3.1.1.slim.min.js" ></script>
+    <script src="scripts/libs/tether.min.js" ></script>
+    <script src="scripts/libs/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- 2. 下面引入的是angular的相关的模块：1。angular是javascript的框架  2. angular.js 的第三方的路由模块ui-router  3.angular.js 里面的专门的设置cookie的模块  -->
+    <script src="scripts/libs/angular.js"></script>
+    <!--  这里载入第三方的路由模块angular-ui-router   -->
+    <script src="scripts/libs/angular-ui-router.min.js"></script>  
+    <script src="scripts/libs/angular-cookies.js"></script>
+
+    <!-- 程序首先进入index.js页面，应用程序的模块入口，并配置路由 -->
+    <script src="scripts/src/main.js"></script>
+
+    <!-- 引入所有的控制器 -->
+    <script src="scripts/src/loginController.js"></script>
+    <script src="scripts/src/registerController.js"></script>
+    <script src="scripts/src/navController.js"></script>
+    <script src="scripts/src/addController.js"></script>
+    <script src="scripts/src/listController.js"></script>
+</body>
+
+</html>

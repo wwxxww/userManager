@@ -1,0 +1,50 @@
+<!--添加用户视图-->
+<!-- form表单进行保存，调取save() 方法 -->
+<form class="form-horizontal" ng-submit="save()">
+    <div class="form-group">
+        <label for="loginName" class="col-sm-2 control-label">登录名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="loginName" placeholder="输入登录名" ng-model="loginName">
+        </div>
+    </div>   
+    <div class="form-group"> 
+        <label for="password" class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="password" placeholder="输入密码" ng-model="password">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="realName" class="col-sm-2 control-label">姓名：</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="realName" placeholder="输入姓名" ng-model="realName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="age" class="col-sm-2 control-label">年龄：</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="age" placeholder="输入年龄" ng-model="age">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="sex" class="col-sm-2 
+        control-label">性别：</label>
+        <div class="col-sm-10">
+        <select class="form-control" id="sex" ng-model="sex">
+            <option>男</option>
+            <option>女</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="birthday" class="col-sm-2 control-label">出生日期：</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="birthday" placeholder="输入出生日期" ng-model="birthday">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+    </div>
+</form>
+    
